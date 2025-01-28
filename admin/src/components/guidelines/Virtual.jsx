@@ -72,7 +72,7 @@ function Virtual() {
                 
                 data.append('virtual',mainForm.virtual)
 
-                const response = await axios.post('https://admin.ranmicon.com/api/guide-virtual', data, {
+                const response = await axios.post('https://admin.agingcongress.org/api/guide-virtual', data, {
                     headers: { "Content-Type": "multipart/form-data" }
                 });
 

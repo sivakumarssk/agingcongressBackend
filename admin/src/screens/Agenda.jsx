@@ -13,7 +13,7 @@ function Agenda() {
   const fetchAgendas = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('https://admin.ranmicon.com/api/getAgenda');
+      const response = await axios.get('https://admin.agingcongress.org/api/getAgenda');
       setAgendas(response.data.agendas);
     } catch (error) {
       console.error(error);
@@ -41,7 +41,7 @@ function Agenda() {
     formData.append('pdfFile', pdfFile);
 
     try {
-      await axios.post('https://admin.ranmicon.com/api/addAgenda', formData);
+      await axios.post('https://admin.agingcongress.org/api/addAgenda', formData);
       setDate('');
       setPdfFile(null);
       fetchAgendas();
@@ -55,7 +55,7 @@ function Agenda() {
   // Delete an agenda by ID
   const handleDeleteAgenda = async (id) => {
     try {
-      await axios.delete(`https://admin.ranmicon.com/api/deleteAgenda/${id}`);
+      await axios.delete(`https://admin.agingcongress.org/api/deleteAgenda/${id}`);
       fetchAgendas();
       alert('Agenda deleted successfully');
     } catch (error) {
@@ -93,7 +93,7 @@ function Agenda() {
           {agendas.map((agenda) => (
             <li key={agenda._id} className="agenda-item">
               <p>Date: {agenda.date}</p>
-              <a href={`https://admin.ranmicon.com${agenda.pdf}`} target="_blank" rel="noopener noreferrer">
+              <a href={`https://admin.agingcongress.org${agenda.pdf}`} target="_blank" rel="noopener noreferrer">
                 View PDF
               </a>
               <button onClick={() => handleDeleteAgenda(agenda._id)}>Delete</button>

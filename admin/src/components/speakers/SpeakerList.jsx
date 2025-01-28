@@ -12,7 +12,7 @@ const SpeakerList = () => {
 
     const fetchAllItems = async () => {
         try {
-            const response = await axios.get('https://admin.ranmicon.com/api/getAllSpeakers');
+            const response = await axios.get('https://admin.agingcongress.org/api/getAllSpeakers');
             const { speakers, keynoteSpeakers, committee } = response.data;
 
             // Adding category for each type of item
@@ -31,13 +31,13 @@ const SpeakerList = () => {
         let endpoint = '';
         switch (category) {
             case 'speaker':
-                endpoint = `https://admin.ranmicon.com/api/deleteSpeaker/${id}`;
+                endpoint = `https://admin.agingcongress.org/api/deleteSpeaker/${id}`;
                 break;
             case 'keynote':
-                endpoint = `https://admin.ranmicon.com/api/deleteKeynoteSpeaker/${id}`;
+                endpoint = `https://admin.agingcongress.org/api/deleteKeynoteSpeaker/${id}`;
                 break;
             case 'committee':
-                endpoint = `https://admin.ranmicon.com/api/deleteCommitte/${id}`;
+                endpoint = `https://admin.agingcongress.org/api/deleteCommitte/${id}`;
                 break;
             default:
                 break;
@@ -70,7 +70,7 @@ const SpeakerList = () => {
                         <tr key={item._id}>
                             <td>
                                 <img
-                                    src={`https://admin.ranmicon.com${item.image}`}
+                                    src={`https://admin.agingcongress.org${item.image}`}
                                     alt={item.name}
                                     className="item-image"
                                 />

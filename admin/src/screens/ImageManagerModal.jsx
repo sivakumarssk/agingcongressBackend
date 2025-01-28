@@ -11,7 +11,7 @@ const ImageManagerModal = ({ event, onClose, onImagesUpdated }) => {
     if (newImage) formData.append("eventImage", newImage);
 
     try {
-      const response = await axios.post("http://localhost:5000/api/past-events/image", formData, {
+      const response = await axios.post("https://admin.agingcongress.org/api/past-events/image", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       alert(response.data.message);
@@ -25,7 +25,7 @@ const ImageManagerModal = ({ event, onClose, onImagesUpdated }) => {
     if (!window.confirm("Are you sure you want to delete this image?")) return;
 
     try {
-      await axios.delete("http://localhost:5000/api/past-events/image", {
+      await axios.delete("https://admin.agingcongress.org/api/past-events/image", {
         data: { eventDate: event.eventDate, imagePath },
       });
       alert("Image deleted successfully.");
@@ -42,7 +42,7 @@ const ImageManagerModal = ({ event, onClose, onImagesUpdated }) => {
         {(event.eventImages || []).length > 0 ? (
           event.eventImages.map((imagePath, index) => (
             <li key={index}>
-              <img src={`http://localhost:5000${imagePath}`} alt={`Event ${index}`} width={100} />
+              <img src={`https://admin.agingcongress.org${imagePath}`} alt={`Event ${index}`} width={100} />
               <button onClick={() => handleDeleteImage(imagePath)}>Delete</button>
             </li>
           ))

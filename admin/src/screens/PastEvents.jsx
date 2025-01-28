@@ -14,7 +14,7 @@ const PastEvents = () => {
     if (eventPdf) formData.append("eventPdf", eventPdf);
 
     try {
-      const response = await axios.post("http://localhost:5000/api/past-events/date-pdf", formData, {
+      const response = await axios.post("https://admin.agingcongress.org/api/past-events/date-pdf", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       alert(response.data.message);

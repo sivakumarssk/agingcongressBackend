@@ -123,7 +123,7 @@ const endpointSecret = 'whsec_your_webhook_secret'; // Replace with your webhook
 
 
 
-const PORT = 5000;
+const PORT = 5001;
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
@@ -135,10 +135,10 @@ mongoose.connect(process.env.MONGO_URI)
 
 app.use('/api', userRouter);
 
-// app.use(express.static(path.join(__dirname, '..', 'admin', 'build')));
-// app.get('*',(req,res)=>{
-//     res.sendFile(path.join(__dirname, '..', 'admin', 'build', 'index.html'))
-// })
+app.use(express.static(path.join(__dirname, '..', 'admin', 'build')));
+app.get('*',(req,res)=>{
+    res.sendFile(path.join(__dirname, '..', 'admin', 'build', 'index.html'))
+})
 app.listen(PORT, () => {
     console.log('Server is started at', PORT);
 });

@@ -10,7 +10,7 @@ function TopicsAbstract() {
     // Fetch topics from the server
     const fetchTopics = async () => {
         try {
-            const response = await axios.get("https://admin.ranmicon.com/api/topic");
+            const response = await axios.get("https://admin.agingcongress.org/api/topic");
             console.log(response.data);
             
             setTopics(response.data || []);
@@ -30,7 +30,7 @@ function TopicsAbstract() {
         setError("");
 
         try {
-            const response = await axios.post("https://admin.ranmicon.com/api/addTopics", {
+            const response = await axios.post("https://admin.agingcongress.org/api/addTopics", {
                 topics:newTopic,
             });
             setTopics(response.data.topics);
@@ -46,7 +46,7 @@ function TopicsAbstract() {
     // Delete a topic
     const handleDeleteTopic = async (topic) => {
         try {
-            const response = await axios.post("https://admin.ranmicon.com/api/deleteTopic", {
+            const response = await axios.post("https://admin.agingcongress.org/api/deleteTopic", {
                 topic:topic, // Send the topic to delete
             });
             setTopics(response.data.topics);

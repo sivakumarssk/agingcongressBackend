@@ -96,7 +96,7 @@ function Main() {
                 console.log(data);
                 
 
-                const response = await axios.patch('https://admin.ranmicon.com/api/main', data, {
+                const response = await axios.patch('https://admin.agingcongress.org/api/main', data, {
                     headers: { "Content-Type": "multipart/form-data" }
                 });
 

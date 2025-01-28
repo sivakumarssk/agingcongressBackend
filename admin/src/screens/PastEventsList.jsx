@@ -14,7 +14,7 @@ const PastEventsList = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/past-events");
+      const response = await axios.get("https://admin.agingcongress.org/api/past-events");
       setEvents(response.data);
     } catch (error) {
       alert("Error fetching events.");
@@ -25,7 +25,7 @@ const PastEventsList = () => {
     if (!window.confirm("Are you sure you want to delete this event?")) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/past-events/${eventDate}`);
+      await axios.delete(`https://admin.agingcongress.org/api/past-events/${eventDate}`);
       alert("Event deleted successfully.");
       fetchEvents();
     } catch (error) {
@@ -35,7 +35,7 @@ const PastEventsList = () => {
 
   const handleViewPdf = (pdfPath) => {
     if (pdfPath) {
-      window.open(`http://localhost:5000${pdfPath}`, "_blank");
+      window.open(`https://admin.agingcongress.org${pdfPath}`, "_blank");
     } else {
       alert("No PDF available for this event.");
     }
